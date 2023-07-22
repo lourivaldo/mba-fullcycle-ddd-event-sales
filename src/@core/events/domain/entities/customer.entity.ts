@@ -6,8 +6,8 @@ export class CustomerId extends Uuid {}
 
 export  type CustomerConstructorProps = {
   id?: CustomerId | string;
-  name: string;
   cpf: Cpf;
+  name: string;
 }
 export class Customer extends AggregateRoot {
   id: CustomerId;
