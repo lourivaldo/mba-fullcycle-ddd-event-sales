@@ -54,8 +54,14 @@ export class EventSection extends Entity {
       is_published: false,
       total_spots_reserved: 0,
     });
-
+    section.initSpots()
     return section;
+  }
+  
+  private initSpots() {
+    for (let i = 0; i < this.total_spots; i++) {
+      this.spots.add(EventSpot.create())
+    }
   }
 
   toJSON() {
