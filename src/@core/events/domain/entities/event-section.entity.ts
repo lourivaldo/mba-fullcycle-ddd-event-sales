@@ -57,6 +57,31 @@ export class EventSection extends Entity {
     section.initSpots()
     return section;
   }
+
+  changeName(name: string) {
+    this.name = name;
+  }
+
+  changeDescription(description: string) {
+    this.description = description;
+  }
+
+  changePrice(price: number) {
+    this.price = price;
+  }
+
+  publishAll() {
+    this.publish();
+    this.spots.forEach((spot) => spot.publish())
+  } 
+  
+  publish() {
+    this.is_published = true;
+  }
+
+  unPublish() {
+    this.is_published = false;
+  }
   
   private initSpots() {
     for (let i = 0; i < this.total_spots; i++) {
